@@ -1,0 +1,62 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Bricolage Grotesque', system-ui, -apple-system, sans-serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+    --surface-canvas: #F8F5ED;
+    --surface-elevated: #EFEBE0;
+    --surface-border: rgba(16, 16, 16, 0.12);
+    --text-primary: #101010;
+    --text-secondary: #5B5D5B;
+    --accent-gold: #F5C518;
+  }
+
+  .dark {
+    --surface-canvas: #101010;
+    --surface-elevated: #1B1B1B;
+    --surface-border: rgba(248, 245, 237, 0.12);
+    --text-primary: #F8F5ED;
+    --text-secondary: #9A9C9A;
+    --accent-gold: #F5C518;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    background-color: var(--surface-canvas);
+    color: var(--text-primary);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    overflow-x: hidden;
+    letter-spacing: 0.005em;
+  }
+
+  .dark body {
+    letter-spacing: 0.012em;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono-tabular {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  :focus-visible {
+    outline: 2px solid #F5C518;
+    outline-offset: 3px;
+  }
+}
